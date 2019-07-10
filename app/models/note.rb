@@ -24,5 +24,8 @@ class Note < ApplicationRecord
   acts_as_paranoid
 
   belongs_to :user
+  has_many :note_tags, dependent: :destroy
+  has_many :tags, through: :note_tags
+
   validates :title, presence: true
 end
