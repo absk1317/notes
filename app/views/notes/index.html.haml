@@ -2,6 +2,9 @@
   .jumbotron
     .container
       - if current_user
+        .float-right
+          %button.btn.btn-success.btn-rounded.btn-md.my-0
+            = link_to '+ Add new note', new_note_path, method: :get
         %h4
           Your notes:
         %table.table.table-hover
@@ -20,9 +23,11 @@
                 %td= note.body.first(80) + '...'
                 %td
                   %span.table-remove
-                    %button.btn.btn-warning.btn-rounded.btn-sm.my-0 Edit
+                    %button.btn.btn-warning.btn-rounded.btn-sm.my-0
+                      = link_to 'Edit', edit_note_path(note), method: :get
                   %span.table-remove
-                    %button.btn.btn-danger.btn-rounded.btn-sm.my-0 Delete
+                    %button.btn.btn-danger.btn-rounded.btn-sm.my-0
+                      = link_to 'Delete', note_path(note), method: :delete, data: { confirm: 'Are you sure?' }
 
       - else
         %h1 Welcome!

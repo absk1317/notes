@@ -1,0 +1,9 @@
+= form_for @note do |f|
+  %div.form-group
+    %label{for: 'title'} Title
+    = f.text_field :title, class: 'form-control'
+  %div.form-group
+    %label{for: 'body'} Body
+    = f.text_area :body, class: 'form-control', rows: 6, id: 'body'
+  %div.form-group
+    = f.submit

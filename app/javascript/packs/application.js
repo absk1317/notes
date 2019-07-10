@@ -13,8 +13,8 @@ import './src/application.scss'
 
 $('document').ready(function() {
   setTimeout(function() {
-    $('.alert').slideUp();
-  }, 4000);
+    $('.alert-success').slideUp();
+  }, 2000);
 });
 
 // Uncomment to copy all static images under ../images to the output folder and reference
