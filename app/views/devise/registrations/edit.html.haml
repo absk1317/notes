@@ -23,8 +23,4 @@
     = f.password_field :current_password, autocomplete: "off", class: 'form-control'
     %span.help-block we need your current password to confirm your changes
   = f.submit "Update", class: 'btn btn-primary'
-%h3 Cancel my account
-%p
-  Unhappy?
-  \#{button_to "Cancel my account", registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back, class: 'btn btn-default btn-sm'
+  = link_to "Back", :back, class: 'btn btn-default btn-sm float-right'
