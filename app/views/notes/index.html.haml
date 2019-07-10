@@ -1,0 +1,31 @@
+- content_for :top_content do
+  .jumbotron
+    .container
+      - if current_user
+        %h4
+          Your notes:
+        %table.table.table-hover
+          = paginate @notes
+          %thead
+            %tr
+              %th{scope: "col"} #
+              %th{scope: "col"} Title
+              %th{scope: "col"} Note
+              %th{scope: "col", colspan: 2} Actions
+          %tbody
+            - @notes.each_with_index do |note, index|
+              %tr
+                %th{scope: "row"}= params[:page].to_i * 10 + index + 1
+                %td= note.title.first(8)
+                %td= note.body.first(80) + '...'
+                %td
+                  %span.table-remove
+                    %button.btn.btn-warning.btn-rounded.btn-sm.my-0 Edit
+                  %span.table-remove
+                    %button.btn.btn-danger.btn-rounded.btn-sm.my-0 Delete
+
+      - else
+        %h1 Welcome!
+        %p Register to get started.
+        %p
+          = link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg'
