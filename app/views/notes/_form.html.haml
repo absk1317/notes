@@ -1,10 +1,12 @@
-= form_for @note do |f|
+= simple_form_for @note do |f|
   %div.form-group
     %label{for: 'title'} Title
     = f.text_field :title, class: 'form-control'
   %div.form-group
     %label{for: 'note_body'} Body
     = f.text_area :body, class: 'form-control', rows: rows_count(@note.body), id: 'note_body'
+  %div.form-group
+    = f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, input_html: { multiple: true }
   %div.form-group
     = f.submit
     = link_to "Back", :back, class: 'btn btn-default btn-md float-right'

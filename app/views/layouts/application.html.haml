@@ -13,12 +13,16 @@
       - if user_signed_in?
         %ul.navbar-nav.ml-auto
           / Dropdown
-          %li.nav-item.dropdown
+          %li.nav-item.dropdown{style: "padding-right: 3.5rem;"}
             %a#navbardrop.nav-link.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
               = current_user.name
             .dropdown-menu
-              = link_to 'Edit Profile', edit_user_registration_path, class: "dropdown-item"
-              = link_to 'Log out', destroy_user_session_path, method: :delete, class: "dropdown-item"
+              = link_to edit_user_registration_path, class: "dropdown-item" do
+                = fa_icon "edit"
+                Edit Profile
+              = link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do
+                = fa_icon "sign-out"
+                Log out
       - else
         %ul.navbar-nav.ml-auto
           %li.nav-item

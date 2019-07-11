@@ -3,7 +3,11 @@ class NotesController < ApplicationController
 
   def index
     # flash[:success] = "Welcome #{current_user.name}!"
-    @notes = current_user.notes.order(:created_at).page(params[:page])
+    @notes = if params[:tag]
+               current_user.notes.tagged_with(params[:tag])
+             else
+               current_user.notes
+             end.includes(:tags).order(updated_at: :desc).page(params[:page])
   end
 
   def show; end
@@ -34,7 +38,8 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:title, :body)
+    params.require(:note).permit(:title, :body, :tag_list, :tag,
+                                 { tag_ids: [] }, :tag_ids)
   end
 
   def set_note

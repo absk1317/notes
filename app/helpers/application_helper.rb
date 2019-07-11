@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def rows_count(text)
-    return 25 unless text
+    return 10 unless text
 
     min_rows = text.length.to_i / 120
     return min_rows if min_rows < 25

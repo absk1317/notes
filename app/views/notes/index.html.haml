@@ -7,21 +7,25 @@
             = link_to '+ Add new note', new_note_path, method: :get
         %h4
           Your notes:
-        %table.table.table-hover
+        %table.table.table-hover.table-fixed
           = paginate @notes
           %thead
             %tr
-              %th{scope: "col"} #
-              %th{scope: "col"} Title
-              %th{scope: "col"} Note
-              %th{scope: "col", colspan: 3} Actions
+              %th{scope: "col", style: "width: 4%"} #
+              %th{scope: "col", style: "width: 8%"} Title
+              %th{scope: "col", rowspan: 2, style: "width: 61%"} Note
+              %th{scope: "col", colspan: 3, style: "width: 27%"} Actions
           %tbody
             - @notes.each_with_index do |note, index|
               %tr
-                %th{scope: "row"}= params[:page].to_i * 10 + index + 1
-                %td= trim_content note.title, 8
-                %td= trim_content note.body, 60
+                %td{scope: "row"}= params[:page].to_i * 10 + index + 1
                 %td
+                  %b= trim_content note.title, 8
+                %td
+                  = trim_content note.body, 60
+                  %br/
+                  = raw note.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
+                %td.col-xs-3
                   %span.table-remove
                     %button.btn.btn-default.btn-rounded.btn-sm.my-0
                       = fa_icon "eye"

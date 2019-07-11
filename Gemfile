@@ -13,6 +13,7 @@ gem 'haml'
 gem "paranoia", "~> 2.2"
 gem 'kaminari'
 gem 'font-awesome-rails'
+gem 'simple_form'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'

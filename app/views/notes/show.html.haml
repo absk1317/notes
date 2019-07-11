@@ -1,6 +1,7 @@
 %blockquote.blockquote.text-center
   %p.mb-4{style: "word-break: break-all;" }= @note.title
   %footer.blockquote-footer= @note.created_at.to_s(:human)
+  %footer.blockquote-footer= raw @note.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
 %p{style: "word-break: break-all;" }= @note.body
 %button.btn.btn-warning.btn-rounded.btn-sm.my-0
   = fa_icon "edit"
