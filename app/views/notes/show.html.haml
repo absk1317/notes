@@ -1,3 +1,8 @@
-%h1= @note.title
-%h4
-  "#{@note.body}"
+%blockquote.blockquote.text-center
+  %p.mb-4{style: "word-break: break-all;" }= @note.title
+  %footer.blockquote-footer= @note.created_at.to_s(:human)
+%p{style: "word-break: break-all;" }= @note.body
+%button.btn.btn-warning.btn-rounded.btn-sm.my-0
+  = fa_icon "edit"
+  = link_to 'Edit', edit_note_path(@note), method: :get
+= link_to "Back", :back, class: 'btn btn-default btn-md float-right'

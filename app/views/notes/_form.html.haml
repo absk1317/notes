@@ -3,7 +3,9 @@
     %label{for: 'title'} Title
     = f.text_field :title, class: 'form-control'
   %div.form-group
-    %label{for: 'body'} Body
-    = f.text_area :body, class: 'form-control', rows: 6, id: 'body'
+    %label{for: 'note_body'} Body
+    = f.text_area :body, class: 'form-control', rows: rows_count(@note.body), id: 'note_body'
   %div.form-group
     = f.submit
+    = link_to "Back", :back, class: 'btn btn-default btn-md float-right'
+

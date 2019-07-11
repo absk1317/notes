@@ -8,6 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
+require("autosize")
 import 'bootstrap'
 import './src/application.scss'
 
@@ -15,6 +16,10 @@ $('document').ready(function() {
   setTimeout(function() {
     $('.alert-success').slideUp();
   }, 2000);
+});
+
+$(function () {
+  autosize($('#note_body'));
 });
 
 // Uncomment to copy all static images under ../images to the output folder and reference

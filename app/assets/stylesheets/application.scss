@@ -12,9 +12,12 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 @import "bootstrap-sprockets";
 @import 'bootstrap/theme';
+@import "font-awesome";
+
 .alert-alert {
   @extend .alert-warning;
 }

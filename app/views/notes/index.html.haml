@@ -14,19 +14,25 @@
               %th{scope: "col"} #
               %th{scope: "col"} Title
               %th{scope: "col"} Note
-              %th{scope: "col", colspan: 2} Actions
+              %th{scope: "col", colspan: 3} Actions
           %tbody
             - @notes.each_with_index do |note, index|
               %tr
                 %th{scope: "row"}= params[:page].to_i * 10 + index + 1
-                %td= note.title.first(8)
-                %td= note.body.first(80) + '...'
+                %td= trim_content note.title, 8
+                %td= trim_content note.body, 60
                 %td
                   %span.table-remove
+                    %button.btn.btn-default.btn-rounded.btn-sm.my-0
+                      = fa_icon "eye"
+                      = link_to 'View', note, method: :get
+                  %span.table-remove
                     %button.btn.btn-warning.btn-rounded.btn-sm.my-0
+                      = fa_icon "edit"
                       = link_to 'Edit', edit_note_path(note), method: :get
                   %span.table-remove
                     %button.btn.btn-danger.btn-rounded.btn-sm.my-0
+                      = fa_icon "trash"
                       = link_to 'Delete', note_path(note), method: :delete, data: { confirm: 'Are you sure?' }
 
       - else
