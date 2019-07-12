@@ -34,4 +34,15 @@ class Note < ApplicationRecord
   }
 
   validates :title, presence: true
+
+  def tag_list
+    tags.map(&:name).join(', ')
+  end
+
+  def tag_list=(names)
+    tags = [names].flatten.each.map do |name|
+      Tag.find_by(id: name.to_i) || Tag.where(name: name.strip).first_or_create!
+    end.uniq
+    self.tags = tags
+  end
 end

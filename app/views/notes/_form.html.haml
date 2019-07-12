@@ -6,7 +6,13 @@
     %label{for: 'note_body'} Body
     = f.text_area :body, class: 'form-control', rows: rows_count(@note.body), id: 'note_body'
   %div.form-group
-    = f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, input_html: { multiple: true }
+    = f.input :tag_ids,
+      as: :select,
+      collection: Tag.order(:name),
+      label: 'Tags',
+      label_method: :name,
+      input_html: { multiple: true }
+    %label Press `Tab` key if you want to add a new tag to the system.
   %div.form-group
     = f.submit
     = link_to "Back", :back, class: 'btn btn-default btn-md float-right'

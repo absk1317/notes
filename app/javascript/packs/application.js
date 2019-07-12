@@ -30,6 +30,14 @@ $('document').ready(function () {
     allow_single_deselect: true,
     width: '100%'
   })
+  $(".chosen-search-input").keydown(function (evt) {
+    var stroke, _ref;
+    stroke = (_ref = evt.which) != null ? _ref : evt.keyCode;
+    if (stroke == 9) { // 9 = tab key
+      $('#note_tag_ids').append('<option value="' + $(this).val() + '" selected="selected">' + $(this).val() + '</option>');
+      $('#note_tag_ids').trigger('chosen:updated');
+    }
+  });
 });
 
 

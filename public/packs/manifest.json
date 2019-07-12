@@ -1,34 +1,26 @@
 {
-  "application.css": "/packs/css/application-d7bfe146.css",
-  "application.js": "/packs/js/application-50ba1041e55a1aab6ad1.js",
-  "application.js.map": "/packs/js/application-50ba1041e55a1aab6ad1.js.map",
+  "application.js": "/packs/js/application-9350f17478e9c0e15f9d.js",
+  "application.js.map": "/packs/js/application-9350f17478e9c0e15f9d.js.map",
   "entrypoints": {
     "application": {
-      "css": [
-        "/packs/css/application-d7bfe146.css"
-      ],
       "js": [
-        "/packs/js/application-50ba1041e55a1aab6ad1.js"
+        "/packs/js/application-9350f17478e9c0e15f9d.js"
       ],
       "js.map": [
-        "/packs/js/application-50ba1041e55a1aab6ad1.js.map"
+        "/packs/js/application-9350f17478e9c0e15f9d.js.map"
       ]
     },
     "src/application": {
-      "css": [
-        "/packs/css/src/application-6aff7d1f.css"
-      ],
       "js": [
-        "/packs/js/src/application-3c64b2c663e574d0d27a.js"
+        "/packs/js/src/application-44f8b554e0c58bb47334.js"
       ],
       "js.map": [
-        "/packs/js/src/application-3c64b2c663e574d0d27a.js.map"
+        "/packs/js/src/application-44f8b554e0c58bb47334.js.map"
       ]
     }
   },
   "media/chosen-js/chosen-sprite.png": "/packs/media/chosen-js/chosen-sprite-8b55a822.png",
   "media/chosen-js/chosen-sprite@2x.png": "/packs/media/chosen-js/chosen-sprite@2x-614fad61.png",
-  "src/application.css": "/packs/css/src/application-6aff7d1f.css",
-  "src/application.js": "/packs/js/src/application-3c64b2c663e574d0d27a.js",
-  "src/application.js.map": "/packs/js/src/application-3c64b2c663e574d0d27a.js.map"
+  "src/application.js": "/packs/js/src/application-44f8b554e0c58bb47334.js",
+  "src/application.js.map": "/packs/js/src/application-44f8b554e0c58bb47334.js.map"
 }
