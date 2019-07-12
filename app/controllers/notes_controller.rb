@@ -16,16 +16,27 @@ class NotesController < ApplicationController
   end
 
   def create
-    current_user.notes.create(note_params)
-    redirect_to notes_path
+    @note = current_user.notes.build(note_params)
+    @note.tag_list = params.require(:note)[:tag_ids].reject(&:blank?)
+    if @note.save
+      redirect_to note_path(@note)
+    else
+      flash[:error] = @note.errors.full_messages
+      render :new
+    end
   end
 
   def edit; end
 
   def update
-    @note.update(note_params)
-
-    redirect_to note_path(@note)
+    @note.assign_attributes(note_params)
+    @note.tag_list = params.require(:note)[:tag_ids].reject(&:blank?)
+    if @note.save
+      redirect_to note_path(@note)
+    else
+      flash[:error] = @note.errors.full_messages
+      render :edit
+    end
   end
 
   def destroy
@@ -37,7 +48,7 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:title, :body, tag_ids: [])
+    params.require(:note).permit(:title, :body)
   end
 
   def set_note
