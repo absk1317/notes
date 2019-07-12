@@ -1,24 +1,12 @@
-# README
+This project uses ruby 2.6.3 and rails 6-rc.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# To get started:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. install the required ruby version
+2. install bundler
+3. run `bundle install`
+4. run `yarn install`
+5. edit the database configuration in `config/database.yml`
+6. run `rake db:create db:migrate` to set up the database.
+7. run `rails server` and visit `localhost:3000`.
+8. You should be good to go from here.!
