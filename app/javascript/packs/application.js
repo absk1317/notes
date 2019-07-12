@@ -34,10 +34,10 @@ $('document').ready(function () {
     var stroke, _ref;
     stroke = (_ref = evt.which) != null ? _ref : evt.keyCode;
     if (stroke == 9) { // 9 = tab key
-        $('#note_tag_ids').append('<option value="' + $(this).val() + '" selected="selected">' + $(this).val() + '</option>');
-        $('#note_tag_ids').trigger('chosen:updated');
+      $('#note_tag_ids').append('<option value="' + $(this).val() + '" selected="selected">' + $(this).val() + '</option>');
+      $('#note_tag_ids').trigger('chosen:updated');
     }
-});
+  });
 });
 
 
